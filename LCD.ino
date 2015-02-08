@@ -9,7 +9,7 @@
 LiquidCrystal_I2C  lcd(LCD_I2C_ADDR, LCD_EN_PIN, LCD_RW_PIN, LCD_RS_PIN, LCD_D4_PIN, LCD_D5_PIN, LCD_D6_PIN, LCD_D7_PIN);
 MS561101BA baro = MS561101BA();
 
-long debounceLCD = 0;
+long lcdDebounce = 0;
 
 void lcdInit()
 {
@@ -25,9 +25,9 @@ void lcdInit()
 void lcdUpdate()
 {
 
-    if ((millis() - debounceLCD) > LCD_UPDATE_LIMIT) {
+    if ((millis() - lcdDebounce) > LCD_UPDATE_LIMIT) {
 
-        debounceLCD = millis();
+        lcdDebounce = millis();
 
         lcd.clear();
 
