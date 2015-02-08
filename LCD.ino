@@ -11,38 +11,39 @@ MS561101BA baro = MS561101BA();
 
 long debounceLCD = 0;
 
-void initLCD()
+void lcdInit()
 {
-  
- lcd.begin (16,2);
- lcd.setBacklightPin(LCD_BACKLIGHT_PIN,NEGATIVE);
- lcd.setBacklight(LCD_LED_ON);
- baro.init(MS561101BA_ADDR_CSB_LOW); 
- 
+
+    lcd.begin (16,2);
+    lcd.setBacklightPin(LCD_BACKLIGHT_PIN,NEGATIVE);
+    lcd.setBacklight(LCD_LED_ON);
+    baro.init(MS561101BA_ADDR_CSB_LOW);
+
 }
 
 
-void updateLCD()
+void lcdUpdate()
 {
-  if ((millis() - debounceLCD) > LCD_UPDATE_LIMIT) {
-    
-   debounceLCD = millis();
-      
-   lcd.clear();
-   
-   // Row 1
-   lcd.setCursor(0,0); 
-   lcd.print("Pan:");
-   lcd.print(positionPan);
-   lcd.setCursor(8,0); 
-   lcd.print("Tilt:");
-   lcd.print(positionTilt);
-   
-   //Row 2
-   lcd.setCursor(8,1);
-   lcd.print("Temp: ");
-   lcd.print(round(baro.getTemperature(MS561101BA_OSR_4096)));
-   lcd.print("C");
-    
-  }
+
+    if ((millis() - debounceLCD) > LCD_UPDATE_LIMIT) {
+
+        debounceLCD = millis();
+
+        lcd.clear();
+
+        // Row 1
+        lcd.setCursor(0,0);
+        lcd.print("Pan:");
+        lcd.print(servoPositionPan);
+        lcd.setCursor(8,0);
+        lcd.print("Tilt:");
+        lcd.print(servoPositionTilt);
+
+        //Row 2
+        lcd.setCursor(8,1);
+        lcd.print("Temp: ");
+        lcd.print(round(baro.getTemperature(MS561101BA_OSR_4096)));
+        lcd.print("C");
+
+    }
 }

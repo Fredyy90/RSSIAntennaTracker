@@ -1,3 +1,8 @@
+/**
+##############################
+## Servo Setup              ##
+##############################
+**/
 
 #define SERVO_PAN_PIN 44
 #define SERVO_PAN_MIN 1100
@@ -17,7 +22,7 @@
 **/
 
 
-#define LCD_I2C_ADDR    0x20  // Define I2C Address for the PCF8574A 
+#define LCD_I2C_ADDR    0x20  // Define I2C Address for the PCF8574A
 
 //---(Following are the PCF8574 pin assignments to LCD connections )----
 // This are different than earlier/different I2C LCD displays
