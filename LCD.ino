@@ -14,8 +14,8 @@ long lcdDebounce = 0;
 void lcdInit()
 {
 
-    lcd.begin (16,2);
-    lcd.setBacklightPin(LCD_BACKLIGHT_PIN,NEGATIVE);
+    lcd.begin (LCD_COLS, LCD_ROWS);
+    lcd.setBacklightPin(LCD_BACKLIGHT_PIN, NEGATIVE);
     lcd.setBacklight(LCD_LED_ON);
     baro.init(MS561101BA_ADDR_CSB_LOW);
 
