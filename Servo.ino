@@ -31,6 +31,7 @@ int servoMapTilt(int pos)
     return round(map(pos, SERVO_MIN, SERVO_MAX, SERVO_TILT_MIN, SERVO_TILT_MAX));
 
 }
+
 int servoMapPan(int pos)
 {
 
