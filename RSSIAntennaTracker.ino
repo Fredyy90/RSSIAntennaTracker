@@ -16,7 +16,9 @@ void loop()
 {
 
     triggerUpdates();
-    servoDemo();
+    //servoDemo();
+    trackerRun();
+
 }
 
 void triggerUpdates()
