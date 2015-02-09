@@ -1,5 +1,17 @@
 /**
 ##############################
+## RSSI Setup               ##
+##############################
+**/
+
+#define RSSI_PIN_LEFT_HELIX A0
+#define RSSI_PIN_CENTER_HELIX A1
+#define RSSI_PIN_RIGHT_HELIX A2
+#define RSSI_PIN_SPW A3
+
+
+/**
+##############################
 ## Servo Setup              ##
 ##############################
 **/

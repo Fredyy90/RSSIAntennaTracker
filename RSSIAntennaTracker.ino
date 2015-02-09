@@ -3,18 +3,23 @@
 int servoPositionPan = SERVO_MID;
 int servoPositionTilt = SERVO_MID;
 
-void setup()
-{
+void setup(){
+
     lcdInit();
     servoInit();
+
 }
 
-void loop()
-{
+void loop(){
+
     triggerUpdates();
     servoDemo();
+
 }
 
 void triggerUpdates(){
+
+    rssiUpdate();
     lcdUpdate();
+
 }
