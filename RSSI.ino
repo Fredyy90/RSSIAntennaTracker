@@ -13,7 +13,8 @@ RSSI rssiSPW = { 0, 0, 0};
 
 
 
-void rssiUpdate(){
+void rssiUpdate()
+{
 
 	rssiUpdateValue(rssiLeftHelix, analogRead(RSSI_PIN_LEFT_HELIX));
 	rssiUpdateValue(rssiCenterHelix, analogRead(RSSI_PIN_CENTER_HELIX));
@@ -22,7 +23,8 @@ void rssiUpdate(){
 
 }
 
-void rssiUpdateValue(struct RSSI &rssi, int value){
+void rssiUpdateValue(struct RSSI &rssi, int value)
+{
 
 	rssi.current = value;
 	rssi.max = max(rssi.max, value);
