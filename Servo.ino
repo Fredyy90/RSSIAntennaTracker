@@ -5,7 +5,7 @@
 Servo servoPan;
 Servo servoTilt;
 
-void servoScan(Servo servo, int &pos, int (*map)(int));
+void servoScan(Servo &servo, int &pos, int (*map)(int));
 
 void servoInit()
 {
@@ -25,6 +25,57 @@ void servoDemo()
 
 }
 
+void servoMove(int direction)
+{
+
+    Servo servo;
+
+    if(direction == SERVO_DIRECTION_LEFT or direction == SERVO_DIRECTION_RIGHT){
+
+        servoMovePan(direction);
+
+    }else if(direction == SERVO_DIRECTION_UP or direction == SERVO_DIRECTION_DOWN){
+
+        servoMoveTilt(direction);
+
+    }
+
+}
+
+void servoMoveTilt(int direction)
+{
+
+    if(direction == SERVO_DIRECTION_DOWN && servoPositionTilt > SERVO_MIN){
+
+        servoPositionTilt = max(servoPositionTilt - SERVO_PAN_STEP, SERVO_MIN);
+
+    }else if(direction == SERVO_DIRECTION_UP && servoPositionTilt < SERVO_MAX){
+
+        servoPositionTilt = min(servoPositionTilt + SERVO_PAN_STEP, SERVO_MAX);
+
+    }
+
+    servoTilt.writeMicroseconds(servoMapTilt(servoPositionTilt));
+
+}
+
+void servoMovePan(int direction)
+{
+
+    if(direction == SERVO_DIRECTION_LEFT && servoPositionPan > SERVO_MIN){
+
+        servoPositionPan = max(servoPositionPan - SERVO_PAN_STEP, SERVO_MIN);
+
+    }else if(direction == SERVO_DIRECTION_RIGHT && servoPositionPan < SERVO_MAX){
+
+        servoPositionPan = min(servoPositionPan + SERVO_PAN_STEP, SERVO_MAX);
+
+    }
+
+    servoPan.writeMicroseconds(servoMapPan(servoPositionPan));
+
+}
+
 int servoMapTilt(int pos)
 {
 
@@ -39,7 +90,7 @@ int servoMapPan(int pos)
 
 }
 
-void servoScan(Servo servo, int &pos, int (*map)(int))
+void servoScan(Servo &servo, int &pos, int (*map)(int))
 {
 
     for(pos = SERVO_MID; pos <= SERVO_MAX; pos += SCAN_STEP)

@@ -17,12 +17,14 @@
 **/
 
 #define SERVO_PAN_PIN 44
-#define SERVO_PAN_MIN 1100
-#define SERVO_PAN_MAX 2000
+#define SERVO_PAN_MIN 2000     // pan servo left limit in ms
+#define SERVO_PAN_MAX 1100     // pan servo right limit in ms
+#define SERVO_PAN_STEP 2
 
 #define SERVO_TILT_PIN 45
-#define SERVO_TILT_MIN 1850
-#define SERVO_TILT_MAX 975
+#define SERVO_TILT_MIN 1850    // tilt servo horizontal in ms
+#define SERVO_TILT_MAX 975     // tilt servo vertical in ms
+#define SERVO_TILT_STEP 2
 
 #define SCAN_DELAY 50
 #define SCAN_STEP 2
@@ -65,4 +67,9 @@
 #define SERVO_MIN 0
 #define SERVO_MAX 256
 #define SERVO_MID SERVO_MAX/2
+
+#define SERVO_DIRECTION_LEFT 1
+#define SERVO_DIRECTION_RIGHT 2
+#define SERVO_DIRECTION_UP 3
+#define SERVO_DIRECTION_DOWN 4
 
