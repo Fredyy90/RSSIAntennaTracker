@@ -1,7 +1,7 @@
 #include "Config.h"
 
-int servoPositionPan = SERVO_MID;
-int servoPositionTilt = SERVO_MID;
+uint8_t servoPositionPan = SERVO_MID;
+uint8_t servoPositionTilt = SERVO_MID;
 
 void setup()
 {
@@ -17,7 +17,6 @@ void loop()
 
     triggerUpdates();
     servoDemo();
-    Serial.println(freeRam());
 }
 
 void triggerUpdates()
@@ -25,6 +24,7 @@ void triggerUpdates()
 
     rssiUpdate();
     lcdUpdate();
+    Serial.println(freeRam());
 
 }
 

@@ -5,7 +5,7 @@
 Servo servoPan;
 Servo servoTilt;
 
-void servoScan(Servo &servo, int &pos, int (*map)(int));
+void servoScan(Servo &servo, uint8_t &pos, uint8_t (*map)(uint8_t));
 
 void servoInit()
 {
@@ -25,7 +25,7 @@ void servoDemo()
 
 }
 
-void servoMove(int direction)
+void servoMove(char direction)
 {
 
     Servo servo;
@@ -42,7 +42,7 @@ void servoMove(int direction)
 
 }
 
-void servoMoveTilt(int direction)
+void servoMoveTilt(char direction)
 {
 
     if(direction == SERVO_DIRECTION_DOWN && servoPositionTilt > SERVO_MIN){
@@ -59,7 +59,7 @@ void servoMoveTilt(int direction)
 
 }
 
-void servoMovePan(int direction)
+void servoMovePan(char direction)
 {
 
     if(direction == SERVO_DIRECTION_LEFT && servoPositionPan > SERVO_MIN){
@@ -76,21 +76,21 @@ void servoMovePan(int direction)
 
 }
 
-int servoMapTilt(int pos)
+uint8_t servoMapTilt(uint8_t pos)
 {
 
     return round(map(pos, SERVO_MIN, SERVO_MAX, SERVO_TILT_MIN, SERVO_TILT_MAX));
 
 }
 
-int servoMapPan(int pos)
+uint8_t servoMapPan(uint8_t pos)
 {
 
     return round(map(pos, SERVO_MIN, SERVO_MAX, SERVO_PAN_MIN, SERVO_PAN_MAX));
 
 }
 
-void servoScan(Servo &servo, int &pos, int (*map)(int))
+void servoScan(Servo &servo, uint8_t &pos, uint8_t (*map)(uint8_t))
 {
 
     for(pos = SERVO_MID; pos <= SERVO_MAX; pos += SCAN_STEP)

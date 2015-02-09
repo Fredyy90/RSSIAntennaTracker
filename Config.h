@@ -65,7 +65,7 @@
 **/
 
 #define SERVO_MIN 0            // internal servo position bottom/left
-#define SERVO_MAX 256          // internal servo position top/right
+#define SERVO_MAX 255          // internal servo position top/right
 #define SERVO_MID SERVO_MAX/2  // internal servo position center/center
 
 #define SERVO_DIRECTION_LEFT 1
