@@ -72,6 +72,8 @@
 ##############################
 **/
 
+#define DEMO_MODE
+
 #define SERVO_MIN 0            // internal servo position bottom/left
 #define SERVO_MAX 255          // internal servo position top/right
 #define SERVO_MID SERVO_MAX/2  // internal servo position center/center

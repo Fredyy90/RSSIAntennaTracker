@@ -16,8 +16,12 @@ void loop()
 {
 
     triggerUpdates();
-    //servoDemo();
-    trackerRun();
+
+    #ifdef DEMO_MODE
+        servoDemo();
+    #else
+        trackerRun();
+    #endif
 
 }
 
