@@ -10,7 +10,7 @@ void trackerRun()
 void trackerRunPan()
 {
 
-    while(rssiNormalisedValue(rssiLeftHelix) > rssiNormalisedValue(rssiCenterHelix)){
+    while(rssiLeftHelix.normalised - rssiCenterHelix.normalised > TRACKER_RSSI_MIN_OFFSET){
 
         servoMove(SERVO_DIRECTION_LEFT);
         delay(TRACKER_STEP_DELAY);
@@ -18,7 +18,7 @@ void trackerRunPan()
 
     }
 
-    while(rssiNormalisedValue(rssiRightHelix) > rssiNormalisedValue(rssiCenterHelix)){
+    while(rssiRightHelix.normalised - rssiCenterHelix.normalised > TRACKER_RSSI_MIN_OFFSET){
 
         servoMove(SERVO_DIRECTION_RIGHT);
         delay(TRACKER_STEP_DELAY);

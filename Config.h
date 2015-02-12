@@ -4,10 +4,10 @@
 ##############################
 **/
 
-#define RSSI_PIN_LEFT_HELIX A0
-#define RSSI_PIN_CENTER_HELIX A1
-#define RSSI_PIN_RIGHT_HELIX A2
-#define RSSI_PIN_SPW A3
+#define RSSI_PIN_LEFT_HELIX A8
+#define RSSI_PIN_CENTER_HELIX A9
+#define RSSI_PIN_RIGHT_HELIX A10
+#define RSSI_PIN_SPW A11
 
 
 /**
@@ -65,6 +65,7 @@
 **/
 
 #define TRACKER_STEP_DELAY 10
+#define TRACKER_RSSI_MIN_OFFSET 5
 
 /**
 ##############################
