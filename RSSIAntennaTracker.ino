@@ -1,7 +1,7 @@
 #include "Config.h"
 
-uint8_t servoPositionPan = SERVO_MID;
-uint8_t servoPositionTilt = SERVO_MID;
+int servoPositionPan = SERVO_MID;
+int servoPositionTilt = SERVO_MID;
 
 void setup()
 {
