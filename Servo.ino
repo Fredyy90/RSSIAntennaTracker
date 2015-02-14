@@ -24,7 +24,7 @@ void servoDemo()
 
 }
 
-void servoMove(int direction)
+void servoMove(char direction)
 {
 
     Servo servo;
@@ -41,7 +41,7 @@ void servoMove(int direction)
 
 }
 
-void servoMoveTilt(int direction)
+void servoMoveTilt(char direction)
 {
 
     if(direction == SERVO_DIRECTION_DOWN && servoPositionTilt > SERVO_MIN){
@@ -58,7 +58,7 @@ void servoMoveTilt(int direction)
 
 }
 
-void servoMovePan(int direction)
+void servoMovePan(char direction)
 {
 
     if(direction == SERVO_DIRECTION_LEFT && servoPositionPan > SERVO_MIN){
