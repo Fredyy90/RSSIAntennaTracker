@@ -20,9 +20,35 @@ void lcdDrawRSSI(char postion, char row, char* name, struct RSSI &rssi){
 
     lcd.setCursor(postion, row);
     lcd.print(name);
-    lcd.print(" ");
+
+    if(rssi.percent >= 100){
+        lcd.print(" ");
+    }else if(rssi.percent >= 10){
+        lcd.print("  ");
+    }else{
+        lcd.print("   ");
+    }
+
     lcd.print(rssi.percent);
     lcd.print("%");
+
+}
+
+void lcdDrawValue(char postion, char row, char* name, int value){
+
+
+    lcd.setCursor(postion, row);
+    lcd.print(name);
+
+    if(value >= 100){
+        lcd.print(" ");
+    }else if(value >= 10){
+        lcd.print("  ");
+    }else{
+        lcd.print("   ");
+    }
+
+    lcd.print(value);
 
 }
 
@@ -36,12 +62,8 @@ void lcdUpdate()
         lcd.clear();
 
         // Row 1
-        lcd.setCursor(0,0);
-        lcd.print("Pan: ");
-        lcd.print(servoPositionPan);
-        lcd.setCursor(LCD_ROW_MID,0);
-        lcd.print("Tilt: ");
-        lcd.print(servoPositionTilt);
+        lcdDrawValue(0, 0, "Pan: ", servoPositionPan);
+        lcdDrawValue(LCD_ROW_MID, 0, "Tilt:", servoPositionTilt);
 
         //Row 2
         /*
