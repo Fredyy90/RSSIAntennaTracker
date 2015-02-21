@@ -35,26 +35,59 @@
 ##############################
 **/
 
+//#define LCD_TYPE_SMALL
+#define LCD_TYPE_LARGE
 
-#define LCD_I2C_ADDR    0x20  // Define I2C Address for the PCF8574A
+#ifdef LCD_TYPE_SMALL
 
-#define LCD_COLS 16
-#define LCD_ROWS 2
+	#define LCD_I2C_ADDR 0x20  // Define I2C Address for the PCF8574A
 
-//---(Following are the PCF8574 pin assignments to LCD connections )----
-// This are different than earlier/different I2C LCD displays
+	#define LCD_COLS 16
+	#define LCD_ROWS 2
 
-#define LCD_BACKLIGHT_PIN  7
-#define LCD_EN_PIN  4
-#define LCD_RW_PIN  5
-#define LCD_RS_PIN  6
-#define LCD_D4_PIN  0
-#define LCD_D5_PIN  1
-#define LCD_D6_PIN  2
-#define LCD_D7_PIN  3
+	//---(Following are the PCF8574 pin assignments to LCD connections )----
+	// This are different than earlier/different I2C LCD displays
 
-#define LCD_LED_OFF  0
-#define LCD_LED_ON  1
+	#define LCD_BACKLIGHT_PIN 7
+	#define LCD_BACKLIGHT_POL NEGATIVE
+
+	#define LCD_EN_PIN 4
+	#define LCD_RW_PIN 5
+	#define LCD_RS_PIN 6
+	#define LCD_D4_PIN 0
+	#define LCD_D5_PIN 1
+	#define LCD_D6_PIN 2
+	#define LCD_D7_PIN 3
+
+#endif
+
+#ifdef LCD_TYPE_LARGE
+
+	#define LCD_I2C_ADDR 0x27  // Define I2C Address for the PCF8574A
+
+	#define LCD_COLS 20
+	#define LCD_ROWS 4
+
+	//---(Following are the PCF8574 pin assignments to LCD connections )----
+	// This are different than earlier/different I2C LCD displays
+
+	#define LCD_BACKLIGHT_PIN 3
+	#define LCD_BACKLIGHT_POL POSITIVE
+
+	#define LCD_EN_PIN 2
+	#define LCD_RW_PIN 1
+	#define LCD_RS_PIN 0
+	#define LCD_D4_PIN 4
+	#define LCD_D5_PIN 5
+	#define LCD_D6_PIN 6
+	#define LCD_D7_PIN 7
+
+#endif
+
+#define LCD_LED_OFF 0
+#define LCD_LED_ON 1
+
+#define LCD_ROW_MID LCD_COLS/2
 
 #define LCD_UPDATE_LIMIT 250
 
