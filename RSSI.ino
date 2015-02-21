@@ -17,5 +17,6 @@ void rssiUpdateValue(struct RSSI &rssi, int value)
     rssi.max = max(rssi.max, value);
     rssi.min = min(rssi.min, value);
     rssi.normalised = map(rssi.current, rssi.min, rssi.max, 0, 256);
+    rssi.percent = rssi.normalised / 256 * 100;
 
 }
