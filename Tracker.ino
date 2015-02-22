@@ -10,23 +10,6 @@ void trackerRun()
     trackerRunTilt();
 }
 
-void trackerRunPan()
-{
-
-    while(rssiLeftHelix.normalised - rssiCenterHelix.normalised > TRACKER_RSSI_MIN_OFFSET){
-
-        trackerMove(SERVO_DIRECTION_LEFT);
-
-    }
-
-    while(rssiRightHelix.normalised - rssiCenterHelix.normalised > TRACKER_RSSI_MIN_OFFSET){
-
-        trackerMove(SERVO_DIRECTION_RIGHT);
-
-    }
-
-}
-
 void trackerMove(char direction){
 
     servoMove(direction);
@@ -54,6 +37,23 @@ char trackerCompareRSSIValues(){
     }else{
 
         return TRACKER_RSSI_LOWER;
+
+    }
+
+}
+
+void trackerRunPan()
+{
+
+    while(rssiLeftHelix.normalised - rssiCenterHelix.normalised > TRACKER_RSSI_MIN_OFFSET){
+
+        trackerMove(SERVO_DIRECTION_LEFT);
+
+    }
+
+    while(rssiRightHelix.normalised - rssiCenterHelix.normalised > TRACKER_RSSI_MIN_OFFSET){
+
+        trackerMove(SERVO_DIRECTION_RIGHT);
 
     }
 
