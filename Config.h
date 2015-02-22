@@ -9,7 +9,6 @@
 #define RSSI_PIN_RIGHT_HELIX A10
 #define RSSI_PIN_SPW A11
 
-
 /**
 ##############################
 ## Servo Setup              ##
@@ -59,9 +58,7 @@
 	#define LCD_D6_PIN 2
 	#define LCD_D7_PIN 3
 
-#endif
-
-#ifdef LCD_TYPE_LARGE
+#elif defined(LCD_TYPE_LARGE)
 
 	#define LCD_I2C_ADDR 0x27  // Define I2C Address for the PCF8574A
 
@@ -94,7 +91,7 @@
 
 /**
 ##############################
-## Tracker Setup               ##
+## Tracker Setup            ##
 ##############################
 **/
 
@@ -103,12 +100,18 @@
 
 /**
 ##############################
-## Internal Servo Constants ##
+## Special Features         ##
 ##############################
 **/
 
 #define DEMO_MODE
 #define SERIAL_DEBUGGING
+
+/**
+##############################
+## Internal Servo Constants ##
+##############################
+**/
 
 #define SERVO_MIN 0            // internal servo position bottom/left
 #define SERVO_MAX 255          // internal servo position top/right
@@ -118,4 +121,3 @@
 #define SERVO_DIRECTION_RIGHT 2
 #define SERVO_DIRECTION_UP 3
 #define SERVO_DIRECTION_DOWN 4
-

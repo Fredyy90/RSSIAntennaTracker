@@ -4,12 +4,12 @@
 
 LiquidCrystal_I2C  lcd(LCD_I2C_ADDR, LCD_EN_PIN, LCD_RW_PIN, LCD_RS_PIN, LCD_D4_PIN, LCD_D5_PIN, LCD_D6_PIN, LCD_D7_PIN);
 
-long lcdDebounce = 0;
+unsigned long lcdDebounce = 0;
 
 void lcdInit()
 {
 
-    lcd.begin (LCD_COLS, LCD_ROWS);
+    lcd.begin(LCD_COLS, LCD_ROWS);
     lcd.setBacklightPin(LCD_BACKLIGHT_PIN, LCD_BACKLIGHT_POL);
     lcd.setBacklight(LCD_LED_ON);
 
