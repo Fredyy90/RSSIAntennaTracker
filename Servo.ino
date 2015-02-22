@@ -1,7 +1,6 @@
 #include <Servo.h>
 #include "Config.h"
 
-
 void servoInit()
 {
 
