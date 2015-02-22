@@ -14,15 +14,17 @@ void servoInit()
 
 }
 
-void servoDemo()
-{
+#ifdef DEMO_MODE
+    void servoDemo()
+    {
 
-    servoScan(servoPan, servoPositionPan, servoMapPan);
-    delay(1000);
-    servoScan(servoTilt, servoPositionTilt, servoMapTilt);
-    delay(1000);
+        servoScan(servoPan, servoPositionPan, servoMapPan);
+        delay(1000);
+        servoScan(servoTilt, servoPositionTilt, servoMapTilt);
+        delay(1000);
 
-}
+    }
+#endif
 
 void servoMove(char direction)
 {
