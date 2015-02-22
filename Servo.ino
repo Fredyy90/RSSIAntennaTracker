@@ -1,10 +1,6 @@
 #include <Servo.h>
 #include "Config.h"
 
-Servo servoPan;
-Servo servoTilt;
-
-void servoScan(Servo &servo, int &pos, int (*map)(int));
 
 void servoInit()
 {
