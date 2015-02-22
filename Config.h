@@ -89,7 +89,8 @@
 
 #define LCD_ROW_MID LCD_COLS/2
 
-#define LCD_UPDATE_LIMIT 250
+#define LCD_FPS 4
+#define LCD_UPDATE_LIMIT 1000/LCD_FPS
 
 /**
 ##############################
@@ -107,6 +108,7 @@
 **/
 
 #define DEMO_MODE
+#define SERIAL_DEBUGGING
 
 #define SERVO_MIN 0            // internal servo position bottom/left
 #define SERVO_MAX 255          // internal servo position top/right

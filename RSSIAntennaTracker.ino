@@ -19,7 +19,9 @@ RSSI rssiSPW = { 0, 0, 0, 0};
 void setup()
 {
 
-    Serial.begin(115200);
+    #ifdef SERIAL_DEBUGGING
+        Serial.begin(115200);
+    #endif
     lcdInit();
     servoInit();
 
@@ -43,13 +45,18 @@ void triggerUpdates()
 
     rssiUpdate();
     lcdUpdate();
-    Serial.println(freeRam());
+
+    #ifdef SERIAL_DEBUGGING
+        Serial.println(freeRam());
+    #endif
 
 }
 
-int freeRam ()
-{
-  extern int __heap_start, *__brkval;
-  int v;
-  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval);
-}
+#ifdef SERIAL_DEBUGGING
+    int freeRam ()
+    {
+      extern int __heap_start, *__brkval;
+      int v;
+      return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval);
+    }
+#endif
